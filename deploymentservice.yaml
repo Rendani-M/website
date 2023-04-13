@@ -1,4 +1,3 @@
----
 kind: Deployment # kubernetes resource kind we are creating
 apiVersion: apps/v1
 metadata:
