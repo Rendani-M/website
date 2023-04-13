@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment # kubernetes resource kind we are creating
 metadata:
@@ -19,7 +20,7 @@ spec:
         ports:
           -containerPort: 8080 #the port the container is running on in the cluster
 
-
+---
 
 
   apiVersion: v1 # kubernetes API version
