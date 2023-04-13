@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/Website.jar Website
-ENTRYPOINT ["java", "-jar", "/Website.jar"]
+ADD target/website.jar website
+ENTRYPOINT ["java", "-jar", "/website.jar"]
