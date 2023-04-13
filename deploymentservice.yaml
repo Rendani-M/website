@@ -20,7 +20,7 @@ spec:
           -containerPort: 8080 #the port the container is running on in the cluster
 
 
-  #---
+
 
   apiVersion: v1 # kubernetes API version
   kind: Service # kubernetes resource kind we are creating
