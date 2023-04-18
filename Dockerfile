@@ -1,4 +1,4 @@
-FROM openjdk:8
-EXPOSE 8080
+FROM openjdk:11
+ARG JAR_FILE=build/libs/*.jar
 ADD target/Website.jar Website
 ENTRYPOINT ["java", "-jar", "/Website.jar"]
