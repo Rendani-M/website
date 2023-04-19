@@ -1,4 +1,4 @@
-kind: Deployment # kubernetes resource kind we are creating
+kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: spring-boot-k8s-deployment
@@ -7,31 +7,30 @@ spec:
   selector:
     matchLabels:
       app: spring-boot-k8s
-  replicas: 2  # number of replicas that will be created for this deployment
+  replicas: 2
   template:
     metadata:
       labels:
         app: spring-boot-k8s
     spec:
       containers:
-        -name: spring-boot-k8s
-        image: "rendani24/website:latest"      # image that will be used to containers in the cluster
-        imagePullPolicy: IfNotPresent
-        ports:
-          -containerPort: 8080 #the port the container is running on in the cluster
+        - name: spring-boot-k8s
+          image: "rendani24/website:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
 
 ---
-  apiVersion: v1 # kubernetes API version
-  kind: Service # kubernetes resource kind we are creating
-  metadata:
-    name: springboot-k8ssvc
-    namespace: default
-  spec:
-    selector:
-      app: spring-boot-k8s
-    ports:
-      name: http
-#      -protocol: "TCP"
-      port: 8080 #the port the service is running on in the cluster
-      targetPort: 8080 # the port exposed by the service
-    type: NodePort #type of the service
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-k8ssvc
+  namespace: default
+spec:
+  selector:
+    app: spring-boot-k8s
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: NodePort
